@@ -12,10 +12,15 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var i = 0, j = 1, k = 2, l = 3;
 
   void _answerQuestion() {
     setState(() {
       _questionIndex = _questionIndex + 1;
+      i = i + 4;
+      j = j + 4;
+      k = k + 4;
+      l = l + 4;
     });
     print(_questionIndex);
   }
@@ -24,42 +29,68 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     var questions = [
       'What\'s your favorite color?',
-      'What\'s your favorite animal?',
-      'What\'s your favorite animal?',
-      'What\'s your favorite animal?',
+      'What\'s your favorite flower?',
+      'What\'s your favorite movie genre?',
+      'What\'s your favorite game genre?',
     ];
+    var a1 = [
+      'Black',
+      'White',
+      'Blue',
+      'Yellow',
+      'Rose',
+      'Daisy',
+      'Lily',
+      'Orchid',
+      'Action',
+      'Adventure',
+      'Romance',
+      'Story',
+      'Action',
+      'Racing',
+      'Rockstar',
+      'Adventure',
+    ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Q U I Z'),
+          title: Text('K N O W   M E'),
         ),
         body: Column(
           children: [
-            Question(
-              questions[_questionIndex],
-            ),
+            (_questionIndex<=3) ? Question(questions[_questionIndex]) : Question("ThankYou"), 
+            
+            if(l<=15)
             RaisedButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child: Text(ans[0]['ans1']),
+              child: Text(a1[i]),
+              onPressed: _answerQuestion,
+            ),  
+
+
+            if(l<=15)
+            RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text(a1[j]),
               onPressed: _answerQuestion,
             ),
+
+            if(l<=15)
             RaisedButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child: Text(ans[1]),
+              child: Text(a1[k]),
               onPressed: _answerQuestion,
             ),
+
+            if(l<=15)
             RaisedButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child: Text(ans[2]),
-              onPressed: _answerQuestion,
-            ),
-            RaisedButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: Text(ans[3]),
+              child: Text(a1[l]),
               onPressed: _answerQuestion,
             ),
           ],
