@@ -1,53 +1,70 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var index = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  void ansQ() {
+  void _answerQuestion() {
     setState(() {
-      index = index + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    print("Answer chosen!!");
+    print(_questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'Whst\'s your favourite colour',
-      'Whats\'s your favourite food',
+      'What\'s your favorite color?',
+      'What\'s your favorite animal?',
+      'What\'s your favorite animal?',
+      'What\'s your favorite animal?',
     ];
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Q U I Z  App'),
-          ),
-          body: Column(
-            children: [
-              Text(questions.elementAt(index)),
-              RaisedButton(
-                child: Text("One"),
-                onPressed: ansQ,
-              ),
-              RaisedButton(
-                child: Text("One"),
-                onPressed: ansQ,
-              ),
-              RaisedButton(
-                child: Text("One"),
-                onPressed: ansQ,
-              ),
-            ],
-          )),
+        appBar: AppBar(
+          title: Text('Q U I Z'),
+        ),
+        body: Column(
+          children: [
+            Question(
+              questions[_questionIndex],
+            ),
+            RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text(ans[0]['ans1']),
+              onPressed: _answerQuestion,
+            ),
+            RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text(ans[1]),
+              onPressed: _answerQuestion,
+            ),
+            RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text(ans[2]),
+              onPressed: _answerQuestion,
+            ),
+            RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text(ans[3]),
+              onPressed: _answerQuestion,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
